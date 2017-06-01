@@ -6,7 +6,7 @@ var PSet;
 var Screen = 1;
 var Possible;
 var Servers;
-
+var Final;
 
 
 //LOADS DATA FILE 
@@ -21,7 +21,6 @@ function setup() {
   PSet = new Set();
   createCanvas(800, 600);
   background(0);
-  print(data.getString(0, 0));
   for (var r = 0; r< data.getRowCount(); r++) {
     table.push(new Tables(data.getString(r, 0), data.getString(r, 1), data.getString(r, 2)));
   }
@@ -88,7 +87,6 @@ function titleScreen2() {
     KEYT = String.fromCharCode(keyCode);
   }
   fill(255);
-  text(KEYT, 200, 299);
   text(getTableOnBooth(), 100, 100);
 }
 //CALLED AFTER FIRST TITLE SCREEN, LAUNCHES THE SECOND 
@@ -97,7 +95,7 @@ function Guest() {
   textSize(30);
   fill(0);
   text(KEYN, 400, 300);
-  fill(255);
+  fill(0);
   text(getTableOnNumber(), 50, 500);
   Screen+=1;
   titleScreen2();
@@ -156,6 +154,8 @@ function getTableOnBooth() {
   }
   return Possible.show();
 }
+
+
 ////// Load Servers /////////////////
 function LoadServers () {
 
@@ -173,7 +173,7 @@ function LoadServers () {
     } else if (r < 27 ) {
       S3.add(table[r]);
     } else if (r < 36) {
-      S5.add(table[r]);
+      S4.add(table[r]);
     }
   }
   Servers.add("Server1", S1);
